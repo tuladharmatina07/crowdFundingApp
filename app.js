@@ -7,7 +7,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var registerRouter = require('./routes/register');
 //----Added mongoose after- npm install mongoose----
 var mongoose = require('mongoose');
 var app = express();
@@ -26,8 +26,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
 //----Added----
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -38,6 +36,7 @@ app.use(bodyParser.json())
 //-----Till Here---
 
 app.use('/', indexRouter);
+app.use('/register', registerRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
