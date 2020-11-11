@@ -1,9 +1,64 @@
-body {
+/* body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: blue;
-}
+} */
 
-a {
+/* a {
   color: #00B7FF;
+} */
+ .slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+  height: 50px;
+  text-align: center;
+  color:white;
+}
+#carouselExampleIndicators{
+  position: relative;
+  height:80vh;
+  width:100%;
+}
+#carouselExampleIndicators .carousel-inner{
+  position: relative;
+  height:100%;
+  width: 100%;
+  background: #000;;
+}
+#carouselExampleIndicators.carousel-inner .carousel-item{
+  position: relative;
+  height: 50%;
+  width: 100%;
+  
+}
+#carouselExampleIndicators.carousel-inner .carousel-item centered{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+ 
+}
+img{
+  opacity: 0.45;
+}
+.d-block{
+  height: 100vh;
+}
+/* #carouselExampleIndicators .carousel-inner:before{
+  position: absolute;
+  background: rgba(0, 0, 0, 0.45);
+  top:0;
+  left:0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+} */
+
+.centered {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
