@@ -2,9 +2,7 @@ var express = require('express');
 const bcrypt = require('bcrypt');
 const { get } = require('.');
 var router = express.Router();
-let User = require('../models/users');
-const users = require('../models/users');
-
+const User = require('../models/users');
 
 router.get('/add', function (req, res, next) {
     res.render('login', {
@@ -13,11 +11,11 @@ router.get('/add', function (req, res, next) {
 });
 
 router.post('/auth', async function (req, res) {
-    const user = User.find({username: req.body.username});
+    const user = await User.findOne({username: req.body.username});
     if (user == null) {
         return res.status(400).send('Cannot find user');
     }
-
+     console.log(req.body.username,req.body.password, user.password);
 
     try {
         if (await bcrypt.compare(req.body.password, user.password)) {
