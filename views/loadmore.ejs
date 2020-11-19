@@ -1,0 +1,10 @@
+<h5>Title:<%= project.title %></h5>
+ <h6 ><%= project.short_description %></h6>
+ <p><%= project.long_description %></p>
+ <p>Funding Goal:<%= project.fund_goal %></p>
+ <p>Funding End Date:<%= project.fund_end_date %></p>
+ <%if (project.file){%>
+    <img src="/uploads/<%= project.file %>" alt="Image" width="80">
+    <% } %>
+
+    
