@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/js/fundform.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://unpkg.com/khalti-checkout-web@latest/dist/khalti-checkout.iffe.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <style>
+      .form {
+  display: none;
+}
+.form.active {
+  display: block
+}
+body{
+  background-color: rgb(15, 15, 46) ;
+  opacity: 0.9;
+  color: rgb(239, 241, 241);
+}
+    </style>
+  <script>
+    
+    $(document).ready(function() {
+    $('.form-switch').on('change', function() {
+      $('.form').removeClass('active');
+      var formToShow = '.form-' + $(this).data('id');
+      $(formToShow).addClass('active');
+    });
+  });
+  
+  
+  </script>
+  
+  
+  </head>
+  <body>
+      <h1><%= title%></h1>
+        <form method="POST" action="/fund/save" class="fund">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="string" class="form-control" id="name" name="name" placeholder="Enter name" required>
+            </div>
+            <div class="form-group">
+                <label for="college">Email:</label>
+                <input type="string" class="form-control" id="email" name="email" placeholder="Enter email " required>
+            </div>
+            <div class="form-group">
+                <label for="college">Phone:</label>
+                <input type="number" class="form-control" id="phoneNo" name="phoneNo" placeholder="Enter phone no " required>
+            </div>
+            
+            <div class="form-group">
+              <label for="college"> Amount:</label>
+              <input type="number" class="form-control" id="fund" name="fund" placeholder="Enter fund ">
+          </div>
+            <label for="college">Choose method of funding</label><br>
+          <label><input type="radio" class="form-switch" name="colorCheckbox" value="red" data-id="a" checked> khalti</label>
+          <label><input type="radio" class="form-switch" name="colorCheckbox" value="green" data-id="b"> bank</label>
+          <label><input type="radio" class="form-switch" name="colorCheckbox" value="blue" data-id="c"> cash</label>
+
+          <div class="form form-a active"> 
+            <button type="button" id="payment-button">Pay with Khalti</button>  
+          </div>
+          <div class="form form-b"> 
+            <label for="college">enter image:</label>
+            <input type="string" class="form-control" id="image" name="image">
+          </div>
+          <div class="form form-c"> 
+            <!-- image uploading need to work -->
+            <label for="college">enter image:</label>
+            <input type="stinng" class="form-control" id="image" name="image" >
+          </div><br>
+
+          <button type="button" class="btn  btn-primary " name="action" onclick="myFunction()">Submit</button>
+
+        </form>
+
+
+
+          
+        <script>
+          var config = {
+              // replace the publicKey with yours
+              "publicKey": "test_public_key_dc74e0fd57cb46cd93832aee0a390234",
+              "productIdentity": "1234567890",
+              "productName": "Dragon",
+              "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
+              "paymentPreference": [
+                  "MOBILE_BANKING",
+                  "KHALTI",
+                  "EBANKING",
+                  "CONNECT_IPS",
+                  "SCT",
+                  ],
+              "eventHandler": {
+                  onSuccess (payload) {
+                      // hit merchant api for initiating verfication
+                      console.log(payload);
+                  },
+                  onError (error) {
+                      console.log(error);
+                  },
+                  onClose () {
+                      console.log('widget is closing');
+                  }
+              }
+          };
+  
+          var checkout = new KhaltiCheckout(config);
+          var btn = document.getElementById("payment-button");
+          btn.onclick = function () {
+              // minimum transaction amount must be 10, i.e 1000 in paisa.
+              checkout.show({amount: 1000});
+          }
+      </script>
+    </body>
+</html>
