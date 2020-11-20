@@ -39,24 +39,18 @@ body{
   
   </head>
   <body>
-      <h1><%= title%></h1>
+      <h3><%= project.title %></h3>
+      <h5><%= project.title %></h5>
+
         <form method="POST" action="/fund/save" class="fund">
             <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="string" class="form-control" id="name" name="name" placeholder="Enter name" required>
-            </div>
-            <div class="form-group">
-                <label for="college">Email:</label>
-                <input type="string" class="form-control" id="email" name="email" placeholder="Enter email " required>
-            </div>
-            <div class="form-group">
-                <label for="college">Phone:</label>
-                <input type="number" class="form-control" id="phoneNo" name="phoneNo" placeholder="Enter phone no " required>
+                <label for="name">Funded By:</label>
+                <input type="string" class="form-control" id="doner" name="doner" placeholder="Enter name" required>
             </div>
             
             <div class="form-group">
               <label for="college"> Amount:</label>
-              <input type="number" class="form-control" id="fund" name="fund" placeholder="Enter fund ">
+              <input type="number" class="form-control" id="fund_collected" name="fund_collected" placeholder="Enter fund ">
           </div>
             <label for="college">Choose method of funding</label><br>
           <label><input type="radio" class="form-switch" name="colorCheckbox" value="red" data-id="a" checked> khalti</label>

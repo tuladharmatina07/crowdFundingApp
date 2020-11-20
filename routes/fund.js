@@ -2,25 +2,28 @@ const { Router } = require('express');
 var express = require('express');
 var router = express.Router();
 var Doners = require('../models/users');
+var Project = require('../models/project');
 
 
-router.get('/add', function(req, res, next){
-    res.render('addfund', {
-        title: 'name of project  ',
-    });
+router.get('/add/:_id', function(req,res){
+    var user = res.body
+    Project.findOne({_id: req.params._id}, function(err, project,user){
+        res.render('addfund',{title:'Funding', project: project});
+    })
 })
 
 router.post('/save', function(req, res){
-    // books.push({...req.body, _id: `00${books.length + 1}`});
-    const doner = new Doners(req.body);
-    let promise = doner.save();
+    const funding = new Project(req.body);
+    let promise = funding.save();
     promise.then(()=>{
         console.log("fund  added");
-        console.log(doner)
+        console.log(funding)
         res.redirect('/');
     })
 })
 
+
+/*
 router.get('/remove/:_id', function(req,res){
     console.log(req.params._id);
     Doners.remove({ _id: req.params._id }, function() {
@@ -35,8 +38,9 @@ router.get('/edit/:_id', function(req,res){
     //     title:"Edit Book",
     //     book
     // })
-    Books.findOne({_id: req.params._id}, function(err, book){
-        res.render('editBooks',{title:'Edit Books', book: book});
+    var user = res.body
+    Books.findOne({_id: req.params._id}, function(err, book,user){
+        res.render('editBooks',{title:'Edit Books', book: book,user});
     })
 })
 
@@ -52,16 +56,7 @@ router.post('/saveEdited/:_id', function(req,res){
     console.log(req.params._id);
 })
 
+*/
 
 
-
-router.get('/', function(req, res, next) {
-  Doners.find({}, function(err, doners) {
-     if (!err) {
-       res.render('fund', { title: 'fund collection ', donerList: doners });
-     } else {
-       console.log('error', err);
-     }
-   })
- });
 module.exports = router;
