@@ -21,7 +21,7 @@ router.post('/auth', async function (req, res) {
         if (await bcrypt.compare(req.body.password, user.password)) {
             console.log(user.username + "::" + user.password);
             res.redirect('/');
-            // res.send('Login Success')
+            res.send('Login Success');
         } else {
             res.redirect('/login/add');
             console.log('user not found');
@@ -30,21 +30,19 @@ router.post('/auth', async function (req, res) {
     } catch {
         res.status(500).send('Login Failed');
     }
-    // var username =  req.body.username;
-    // var password = req.body.password;
-    // User.findOne ({ username: username } && {password:password},function(err,user){
-    //     if(user){
-    //         console.log(user.username + "::" + user.password);
-    //         res.redirect('/');
-    //     }else{
-    //         res.redirect('/login/add');
-    //         console.log('user not found');
-
-    //     }
 
 
 });
 
+// router.get('/logout', function (req, res, next) {
+//     const user = User.findOne({username: req.body.username});
+//     if (user == null) {
+//         return res.status(400).send('Cannot logout user');
+//     }
+//     else{
+//         res.redirect('/');
+//     }
+// })
 
 
 module.exports = router;

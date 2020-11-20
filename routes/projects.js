@@ -80,20 +80,3 @@ module.exports = router;
 
 
 
-router.post('/login',function(req,res){
-    if(req.body.username && req.body.password){
-      if(req.body.username == "admin" && req.body.password == "admin"){
-        res.redirect('/adminView');
-      }
-      Users.findOne({username : req.body.username, password : req.body.password}, function(err, user){
-        if(user != null){
-          //console.log('Logged in with ', user);
-          res.render('examPrep',{user});
-        }else{
-          console.log('User not valid');
-        }
-      });
-    }else{
-      console.log("Please enter username and password");
-    }
-  });
