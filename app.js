@@ -10,6 +10,7 @@ var usersRouter = require('./routes/users');
 var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
 var projectsRouter = require('./routes/projects');
+var fundRouter = require('./routes/fund');
 //----Added mongoose after- npm install mongoose----
 var mongoose = require('mongoose');
 var app = express();
@@ -42,7 +43,7 @@ app.use('/register', registerRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 app.use('/projects', projectsRouter);
-
+app.use('/fund', fundRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
