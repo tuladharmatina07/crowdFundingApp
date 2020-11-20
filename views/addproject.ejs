@@ -33,8 +33,9 @@
 
 
 <body>
+    <div style="padding: 50px;">
     <h1><%= title %></h1>
-    <form method="post" action="/projects/save" autocomplete="off" onsubmit ="return checkforblank()" enctype="multipart/form-data">
+    <form method="post" action="/projects/save" autocomplete="off" onsubmit ="return checkforblank()" enctype="multipart/form-data" >
         
         <div class="form-group">
             <label for="title">Title:</label>
@@ -109,6 +110,8 @@
 
         <button type="submit" class="btn btn-primary" name="action">Submit</button>
     </form>
+    </div>
+    
 </body>
 
 </html>

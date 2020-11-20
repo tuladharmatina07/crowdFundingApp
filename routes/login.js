@@ -20,9 +20,15 @@ router.post('/auth', async function (req, res) {
     try {
         if (await bcrypt.compare(req.body.password, user.password)) {
             console.log(user.username + "::" + user.password);
+            if(req.body.username == "admin" && req.body.password == "admin"){
+                 res.redirect('/adminView');
+                }
+            else {
             res.redirect('/');
+            }
             // res.send('Login Success')
-        } else {
+        } 
+        else {
             res.redirect('/login/add');
             console.log('user not found');
             //res.send('Login failed')

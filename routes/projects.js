@@ -19,10 +19,6 @@ var upload = multer({
 //database collections
 let Projects = require('../models/projects');
 
-// router.post('/upload', upload, function(Req, res, next){
-//     var success = req.file.fieldname + "uploaded successfully";
-//     res.render('upload-file', {title: 'Upload file', success: success});
-// });
 
 router.get('/add', function (req, res, next) {
     res.render('addProject', {
@@ -36,13 +32,13 @@ router.post('/save', upload, function (req, res, next) {
     let promise = project.save();
     promise.then(() =>{
         console.log('Project added');
-        res.redirect('/');
+        res.redirect('/adminView');
     })
 })
 
 router.get('/remove/:id', function(req, res){
     Projects.remove({ _id: req.params.id}, function(){
-        res.redirect('/');
+        res.redirect('/adminView');
     })
 });
 
@@ -63,13 +59,13 @@ router.post('/editSave/:_id', upload, function (req, res){
     if (req.file){
         Projects.findOneAndUpdate({ _id: req.params._id }, { $set: {...req.body, file:req.file.filename} }, function(err, project) {
             console.log(project);
-            res.redirect('/');
+            res.redirect('/adminView');
             })
     }
     else{
         Projects.findOneAndUpdate({ _id: req.params._id }, { $set: req.body }, function(err, project) {
             console.log(project);
-            res.redirect('/');
+            res.redirect('/adminView');
             }) 
     }
     
@@ -79,21 +75,3 @@ router.post('/editSave/:_id', upload, function (req, res){
 module.exports = router;
 
 
-
-router.post('/login',function(req,res){
-    if(req.body.username && req.body.password){
-      if(req.body.username == "admin" && req.body.password == "admin"){
-        res.redirect('/adminView');
-      }
-      Users.findOne({username : req.body.username, password : req.body.password}, function(err, user){
-        if(user != null){
-          //console.log('Logged in with ', user);
-          res.render('examPrep',{user});
-        }else{
-          console.log('User not valid');
-        }
-      });
-    }else{
-      console.log("Please enter username and password");
-    }
-  });
