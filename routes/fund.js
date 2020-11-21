@@ -1,7 +1,7 @@
 const { Router } = require('express');
 var express = require('express');
 var router = express.Router();
-var Doners = require('../models/users');
+var Donate = require('../models/donate');
 var Project = require('../models/projects');
 
 
@@ -13,11 +13,11 @@ router.get('/add/:_id', function(req,res){
 })
 
 router.post('/save', function(req, res){
-    const funding = new Project(req.body);
+    const funding = new Donate(req.body);
     let promise = funding.save();
     promise.then(()=>{
         console.log("fund  added");
-       // console.log(funding)
+        //console.log(funding);
         res.redirect('/');
     })
 });
