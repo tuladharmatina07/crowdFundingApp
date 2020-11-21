@@ -247,29 +247,30 @@ button{
 
             <ul id="register-button">
               <a class="btn btn-outline-light my-2 my-sm-0" type="submit" style="margin: 10px;" href="/login/add">Login</a>
-              <a class="btn btn-outline-light my-2 my-sm-0" type="submit"  href= "/register/add"> Sign In</a>
+              <a class="btn btn-outline-light my-2 my-sm-0" type="submit"  href= "/register/add"> Sign Up</a>
             </ul>
 
         </div> 
         
 
         <div id="banner">
-            <img class="banner-image" src="images/choco1 (2).jpg" />
-            <div class="header">
-                <h1>Starter Friendly</h1>
+
+            <img class="banner-image" src="images/banner-new.jpg" />
+            <div class="header" >
+                <h1 style="padding-top: 90px; color: yellow">Starter Friendly</h1>
             </div>
             <div class="header2">
-                <h3>Here at Starter Friendly we connect businesses with possible investors</h3>
+                <h4 style="padding-top: 20px;">Here at Starter Friendly we connect businesses with possible investors</h4>
             </div>
             <div class="header3">
-                <h3>Helping your business grow</h3>
+                <h4 style="padding-top: 20px;">Helping your business grow</h4>
             </div>
 
 
         </div> 
 
         <div id="Project-container">
-            <h2>Our Projects</h2>
+            <h2 style="font-weight: bold;">Our Projects</h2>
             <% projectList.forEach(function(project, i){ %>
             <div class="row"  
             ">
@@ -285,7 +286,7 @@ button{
                   </div>
                 </div>
                 <div class="column pro-details">
-                    <h2><%= project.title %></h2>
+                    <h2 style="font-weight: bold;"><%= project.title %></h2>
                     <p><%= project.short_description %></p>
                     <p>Fund Goal: <%= project.fund_goal %></p>
                     <!-- <a href="/projects/loadmore/<%= project._id %>" >Load More</a> -->
@@ -298,36 +299,91 @@ button{
             <br>
             <% } )%>
         </div>
-        <div id="about-us">
-            <h2>About us</h2>
-            <h3>Vision</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, autem rem
-                doloremque quo numquam eius accusantium eum quidem hic distinctio sint a voluptatum
-                unde ipsa consequatur dignissimos illo deserunt sequi.</p>
-            <h3>Mission</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, autem rem
-                doloremque quo numquam eius accusantium eum quidem hic distinctio sint a voluptatum
-                unde ipsa consequatur dignissimos illo deserunt sequi.</p>
-        </div>
-        <div id="how-we-work">
-            <h2>How we work</h2>
-        </div>
-        <div id="contact-us">
-            <h2>Want to enroll your project?</h2>
-            <div>
-                <h2>Contact Us</h2>
-                <p>starterfriendlycf@gmail.com</p>
-                <p>123456789/0987543</p>
-                <p>Kathmandu,Nepal</p>
-                <ul class="social-icons">
-                    <li><a href="http://www.facebook.com"><img src='images/mycollection/svg/002-facebook.svg' /></a>
-                    </li>
-                    <li><a href="http://www.instagram.com"><img src='images/mycollection/svg/001-instagram.svg' /></a>
-                    </li>
-                    <li><a href="http://www.twitter.com"><img src='images/mycollection/svg/003-twitter.svg' /></a></li>
-                </ul>
+        <div id="about-us" style="background-color: white;">
+            <h2 style="font-weight: bold;">About us</h2>
+            <div style="margin: 2em;width:90vw;height:50vh;
+        
+            background-color: rgb(158, 189, 221);
+            padding:1em;
+            margin-left:4em;
+        
+            position:absolute;">
+            <h3 style="font-weight: bold;">Vision</h3>
+            <p>To provide support to the preliminary StartUp organisations to grow within themselves and thus
+                be enabled to sustain themselves and benefit communities.</p>
+            <h3 style="font-weight: bold;">Mission</h3>
+            <p>To create a crowdfunding platform for the StartUp Businesses to enable them to
+                build awareness in public and generate funding through free willing donations.</p>
+            <h3 style="font-weight: bold;">Objective</h3>
+            <ul style="text-align: justify;">
+                <li>Provide a well designed, absolutely free of cost fundraising platform for the various StartUps in
+                    need of
+                    financial support and validation.</li>
+                <li>Monitor and Evaluate the progress of the funds and support the organisations to make their ap- peal
+                    more effective.</li>
+                <li>Promote, advertise and enhance the publicity of the projects in order to make the market aware
+                    of the various new ventures as well as appeals that can easily be fulfilled by the people through
+                    individual donations.</li>
+
+            </ul>
             </div>
         </div>
+        <div id="how-we-work" style="background-color:rgb(203, 212, 203);">
+            <h2 style="font-weight: bold;">How we work</h2>
+            <div style="width:90vw;height:50vh;
+        
+            background-color: lightslategrey;
+            padding:1em;
+            margin-left:4em;
+           text-align: justify;
+            position:absolute;">
+                <p>
+                    Starter friendly is a crowdfunding platform through which you can contribute small amounts to
+                    startup business ventures.
+                    Crowdfunding is
+                    simple. You look at a project, an appeal and choose who you want to support in their business by
+                    donating or sharing it on your social media.
+                </p>
+
+                <h2 style="font-weight: bold;">Steps:</h2>
+                <ol>
+                    <li>View the list of projects from the supported projects category on the home page. </li>
+                    <li>Press learn more for the most appealing project according to you.</li>
+                    <li>You can then read more about the startup and also see the details of the fundraiser so far .
+                    <li>Click on the DONATE NOW button </li> on the project details page and choose from the fundraisers
+                    that you would like to donate
+                    to.</li>
+                    <li>Press the DONATE NOW.You can donate online through Khalti for the transaction. </li>
+
+
+                </ol>
+            </div>
+
+
+        </div>
+        <div id="contact-us">
+            <h2 style="font-weight: bold;">Want to enroll your project?</h2>
+            <div>
+                <h2 style="font-weight: bold;">Contact Us</h2>
+                <p style="font-weight: bold;">starterfriendlycf@gmail.com</p>
+                <p style="font-weight: bold;">123456789/0987543</p>
+                <p style="font-weight: bold;">Kathmandu,Nepal</p>
+                <ul class="social-icons">
+                    <li>/StarterFriendly</li>
+                    <li><a href="http://www.facebook.com"><img src='images/002-facebook.svg' /></a>
+                    </li>
+                    <li><a href="http://www.instagram.com"><img src='images/001-instagram.svg' /></a>
+                    </li>
+                    <li><a href="http://www.twitter.com"><img src='images/003-twitter.svg' /></a></li>
+                </ul>
+            </div>
+
+        </div>
+        <footer style="background-color: grey;color:white;text-align: center;">
+            <p>&copy; 2020 StarterFriendly<p>
+        </footer>
+     
     </div>
 </body>
+
 </html>

@@ -48,6 +48,12 @@ router.get('/loadmore/:_id', function(req, res){
     })
     
 });
+router.get('/loadmoreAdmin/:_id', function(req, res){
+    Projects.findOne({ _id: req.params._id} , function(err, project){
+        res.render('loadmoreAdmin', {project:project});
+    })
+    
+});
 router.get('/edit/:_id', function(req, res){
     Projects.findOne({ _id: req.params._id} , function(err, project){
         res.render('editProject', {title: 'Edit Project', project:project});

@@ -24,7 +24,7 @@ router.post('/save', async function (req, res, next) {
               let promise = user.save();
               promise.then(() => {
                   console.log('User added');
-                  res.redirect('/');
+                  res.redirect('/login/add');
               })
     } catch{
         res.status(500).send('error 500');

@@ -17,7 +17,7 @@ router.post('/save', function(req, res){
     let promise = funding.save();
     promise.then(()=>{
         console.log("fund  added");
-        console.log(funding)
+       // console.log(funding)
         res.redirect('/');
     })
 });
