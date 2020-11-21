@@ -175,6 +175,9 @@ h1{
                 <p style="font-size: 24px;"><%= project.short_description %></p>
                 <p style="font-weight: bold; color: rgb(12, 153, 12); font-size: 20px;">Like our idea? Willing to contribute?</p>
                 <h3>Target Fund: <%= project.fund_goal %></h3>
+                <p style="font-weight: bold;">Organization contact: <%= project.organisation_contact %></p>
+                <p style="font-weight: bold;">Organization address: <%= project.organisation_address %></p>
+                <p style="font-weight: bold;">Khalti Id: <%= project.fund_goal %></p>
                 <h3>Funding End Date:<%= project.fund_end_date %></h3>
 
                 <button><a href="/fund/add/<%= project.id%>">Donate NOW</a></button>

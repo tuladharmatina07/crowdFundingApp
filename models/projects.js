@@ -25,14 +25,16 @@ const Projectscheme = mongoose.Schema({
         type:String,
     },
 
-    current_fund :{
+    khalti_id :{
          type: Number
     },
 
-    // organisation_name: {
-    //     type: String
-    // },
-
+    organisation_contact: {
+         type: Number
+     },
+    organisation_address: {
+        type: String,
+    },
     created_date:{
          type:Date, default: Date.now()
     },
